@@ -1,51 +1,88 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %}Gestión de Maquinaria - Juno-Lab{%
+endblock %} {% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4 title-dashboard">
+    <i class="fas fa-tools"></i> Gestión de Maquinaria y Mantenimiento
+  </h1>
 
-{% block content %}
-<h2>Gestión de Maquinaria y Mantenimiento</h2>
+  <!-- Listado de Maquinaria -->
+  <div class="section-box">
+    <h3 class="title-section">
+      <i class="fas fa-cogs"></i> Listado de Maquinaria
+    </h3>
+    {% if maquinaria %}
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="table-info">
+          <tr>
+            <th>Nombre</th>
+            <th>Modelo</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in maquinaria %}
+          <tr>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.modelo }}</td>
+            <td
+              class="{% if item.estado == 'Operativa' %}text-success{% elif item.estado == 'En Mantenimiento' %}text-warning{% elif item.estado == 'Fuera de Servicio' %}text-danger{% endif %}"
+            >
+              {{ item.estado }}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="text-muted text-center mt-3">No hay maquinaria registrada.</p>
+    {% endif %}
+  </div>
 
+  <!-- Historial de Mantenimiento -->
+  <div class="section-box mt-4">
+    <h3 class="title-section">
+      <i class="fas fa-wrench"></i> Historial de Mantenimiento
+    </h3>
+    {% if mantenimientos %}
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover">
+        <thead class="table-secondary">
+          <tr>
+            <th>Maquinaria</th>
+            <th>Fecha</th>
+            <th>Descripción</th>
+            <th>Costo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for mt in mantenimientos %}
+          <tr>
+            <td>{{ mt.maquinaria }}</td>
+            <td>{{ mt.fecha }}</td>
+            <td>{{ mt.descripcion }}</td>
+            <td class="fw-bold">${{ mt.costo }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <p class="text-muted text-center mt-3">
+      No hay mantenimientos registrados.
+    </p>
+    {% endif %}
+  </div>
 
-<h3>Listado de Maquinaria</h3>
-{% if maquinaria %}
-<table border="1">
-    <tr>
-        <th>Nombre</th>
-        <th>Modelo</th>
-        <th>Estado</th>
-    </tr>
-    {% for item in maquinaria %}
-    <tr>
-        <td>{{ item.nombre }}</td>
-        <td>{{ item.modelo }}</td>
-        <td>{{ item.estado }}</td>
-    </tr>
-    {% endfor %}
-</table>
-{% else %}
-<p>No hay maquinaria registrada.</p>
-{% endif %}
-
-
-<h3>Historial de Mantenimiento</h3>
-{% if mantenimientos %}
-<table border="1">
-    <tr>
-        <th>Maquinaria</th>
-        <th>Fecha</th>
-        <th>Descripción</th>
-        <th>Costo</th>
-    </tr>
-    {% for mt in mantenimientos %}
-    <tr>
-        <td>{{ mt.maquinaria }}</td>
-        <td>{{ mt.fecha }}</td>
-        <td>{{ mt.descripcion }}</td>
-        <td>${{ mt.costo }}</td>
-    </tr>
-    {% endfor %}
-</table>
-{% else %}
-<p>No hay mantenimientos registrados.</p>
-{% endif %}
-
-<a href="{{ url_for('routes.dashboard') }}">volver</a>
+  <!-- Botón para volver al Dashboard -->
+  <div class="text-center mt-4">
+    <a
+      href="{{ url_for('routes.dashboard') }}"
+      class="btn btn-secondary btn-lg"
+    >
+      <i class="fas fa-arrow-left"></i> Volver
+    </a>
+  </div>
+</div>
 {% endblock %}

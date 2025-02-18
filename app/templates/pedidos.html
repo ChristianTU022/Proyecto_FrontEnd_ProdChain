@@ -50,7 +50,7 @@ endblock %} {% block content %}
             <td>{{ pedido.cliente }}</td>
             <td>{{ pedido.fecha_pedido }}</td>
             <td
-              class="{% if pedido.estado == 'Pendiente' %}text-warning{% elif pedido.estado == 'Completado' %}text-success{% elif pedido.estado == 'Cancelado' %}text-danger{% endif %}"
+              class="{% if pedido.estado == 'Pendiente' %}text-warning{% elif pedido.estado == 'Enviado' %}text-success{% elif pedido.estado == 'Cancelado' %}text-danger{% endif %}"
             >
               {{ pedido.estado }}
             </td>

@@ -1,20 +1,113 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %}Cambiar Contraseña - Juno-Lab{%
+endblock %} {% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4 title-dashboard">
+    <i class="fas fa-key"></i> Cambiar Contraseña
+  </h1>
 
-{% block content %}
-<h2>Cambiar Contraseña</h2>
-<form method="POST">
-    <label>Contraseña Actual:</label>
-    <input type="password" name="old_password" required>
-    
-    <label>Nueva Contraseña:</label>
-    <input type="password" name="new_password" required>
-    
-    <label>Confirmar Contraseña:</label>
-    <input type="password" name="confirm_password" required>
-    
-    <button type="submit">Actualizar</button>
-</form>
+  <!-- Formulario de Cambio de Contraseña -->
+  <div class="section-box mx-auto" style="max-width: 500px">
+    <form method="POST" class="row g-3">
+      <div class="col-12 position-relative">
+        <label class="form-label"
+          ><i class="fas fa-lock"></i> Contraseña Actual</label
+        >
+        <div class="input-group">
+          <input
+            type="password"
+            id="old_password"
+            name="old_password"
+            class="form-control form-control-lg"
+            required
+            placeholder="Ingrese su contraseña actual"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            onclick="togglePassword('old_password')"
+          >
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 position-relative">
+        <label class="form-label"
+          ><i class="fas fa-key"></i> Nueva Contraseña</label
+        >
+        <div class="input-group">
+          <input
+            type="password"
+            id="new_password"
+            name="new_password"
+            class="form-control form-control-lg"
+            required
+            placeholder="Ingrese la nueva contraseña"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            onclick="togglePassword('new_password')"
+          >
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 position-relative">
+        <label class="form-label"
+          ><i class="fas fa-check-circle"></i> Confirmar Contraseña</label
+        >
+        <div class="input-group">
+          <input
+            type="password"
+            id="confirm_password"
+            name="confirm_password"
+            class="form-control form-control-lg"
+            required
+            placeholder="Confirme la nueva contraseña"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            onclick="togglePassword('confirm_password')"
+          >
+            <i class="fas fa-eye"></i>
+          </button>
+        </div>
+      </div>
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-warning btn-lg shadow mt-3">
+          <i class="fas fa-sync-alt"></i> Actualizar Contraseña
+        </button>
+      </div>
+    </form>
+  </div>
 
+  <!-- Botón para volver al Dashboard -->
+  <div class="text-center mt-4">
+    <a
+      href="{{ url_for('routes.dashboard') }}"
+      class="btn btn-secondary btn-lg"
+    >
+      <i class="fas fa-arrow-left"></i> Volver
+    </a>
+  </div>
+</div>
 
-<a href="{{ url_for('routes.dashboard') }}">volver</a>
+<!-- Script para mostrar/ocultar contraseñas -->
+<script>
+  function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+    const icon = input.nextElementSibling.firstChild;
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    } else {
+      input.type = "password";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    }
+  }
+</script>
 {% endblock %}
