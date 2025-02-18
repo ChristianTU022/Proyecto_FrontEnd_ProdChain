@@ -33,9 +33,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container">
-        <a class="navbar-brand" href="{{ url_for('routes.home') }}"
-          >ProdChain Juno-Lab Application</a
-        >
+        <a class="navbar-brand" href="{{ url_for('routes.home') }}">
+          ProdChain Juno-Lab Application
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -49,13 +49,19 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            {% if current_user.is_authenticated %}
+            {% if current_user.is_authenticated %} {% if current_user.rol_id not
+            in [3, 4] %}
+            <!-- Si no es Operario (3) ni Cliente (4), mostrar Cerrar Sesión -->
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('routes.logout') }}"
-                ><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a
+              <a
+                class="nav-link logout-btn"
+                href="{{ url_for('routes.logout') }}"
               >
+                <i class="fas fa-sign-out-alt"></i>
+                <strong>Cerrar Sesión</strong>
+              </a>
             </li>
-            {% endif %}
+            {% endif %} {% endif %}
           </ul>
         </div>
       </div>

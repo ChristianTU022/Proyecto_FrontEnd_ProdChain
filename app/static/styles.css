@@ -305,3 +305,102 @@ footer {
     background: linear-gradient(45deg, #a56217, #86450d);
     transform: scale(1.05);
 }
+
+/* ===================== */
+/*  Dash del Operario    */
+/* ===================== */
+.title-dashboard {
+    background: linear-gradient(45deg, #17a2b8, #117a8b);
+}
+
+/* ===================== */
+/*      Tarjetas        */
+/* ===================== */
+.card-operario {
+    border: 2px solid #17a2b8;
+    background: white;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.card-operario:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #17a2b8, #117a8b);
+    color: white;
+}
+
+.card-operario:hover i {
+    color: white !important;
+}
+
+/* ===================== */
+/*       Botones        */
+/* ===================== */
+.btn-operario {
+    background: linear-gradient(45deg, #17a2b8, #117a8b);
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-operario:hover {
+    transform: scale(1.08);
+    background: linear-gradient(45deg, #117a8b, #0d5f75);
+}
+
+/* ===================== */
+/*  Cerrar Sesión (Logout) */
+/* ===================== */
+.logout-btn {
+    background: linear-gradient(45deg, #d9534f, #c9302c);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.3s ease-in-out, transform 0.2s, box-shadow 0.2s;
+    border: 2px solid transparent;
+}
+
+.logout-btn i {
+    font-size: 1.2rem;
+}
+
+.logout-btn:hover {
+    background: linear-gradient(45deg, #c9302c, #a52a2a);
+    transform: scale(1.05);
+    box-shadow: 0px 4px 12px rgba(217, 83, 79, 0.5);
+    border-color: white;
+}
+
+/* ===================== */
+/*  Dash del Cliente     */
+/* ===================== */
+.title-dashboard {
+    background: linear-gradient(45deg, #28a745, #218838);
+}
+
+/* ===================== */
+/*      Tarjetas        */
+/* ===================== */
+.dashboard-card {
+    border-color: #28a745;
+}
+
+.dashboard-card:hover {
+    border-color: #218838;
+    box-shadow: 0px 6px 15px rgba(40, 167, 69, 0.3);
+}
+
+/* ===================== */
+/*   Botón de Logout    */
+/* ===================== */
+.logout-card {
+    background: linear-gradient(45deg, #6c757d, #495057);
+    color: white;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.logout-card:hover {
+    background: linear-gradient(45deg, #495057, #343a40);
+    transform: scale(1.05);
+}

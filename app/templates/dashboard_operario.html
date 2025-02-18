@@ -1,22 +1,54 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %}Dashboard de Operario - Juno-Lab{%
+endblock %} {% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-4 title-dashboard">
+    <i class="fas fa-hard-hat"></i> Hola, {{ usuario.nombre }} 👋
+  </h1>
 
-{% block content %}
-<h1>Hola, {{ usuario.nombre }} </h1>
+  <!-- Menú de Navegación con Tarjetas -->
+  <div class="row g-4">
+    <div class="col-md-4">
+      <a
+        href="{{ url_for('routes.ordenes_produccion') }}"
+        class="dashboard-card card-operario"
+      >
+        <i class="fas fa-industry"></i>
+        <span>Producción</span>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a
+        href="{{ url_for('routes.cambiar_contraseña') }}"
+        class="dashboard-card card-operario"
+      >
+        <i class="fas fa-key"></i>
+        <span>Cambiar Contraseña</span>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a
+        href="{{ url_for('routes.logout') }}"
+        class="dashboard-card card-operario"
+      >
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Cerrar Sesión</span>
+      </a>
+    </div>
+  </div>
 
-
-<nav>
-    <a href="{{ url_for('routes.ordenes_produccion') }}">Producción</a>
-    <a href="{{ url_for('routes.cambiar_contraseña') }}">Cambiar Contraseña</a>
-    <a href="{{ url_for('routes.logout') }}">Cerrar Sesión</a>
-</nav>
-
-<h2>Generar Reportes</h2>
-
-<ul>
-
-    <li><a href="{{ url_for('routes.reporte_produccion') }}">Descargar Reporte de Producción</a></li>
-
-
-</ul>
-
+  <!-- Generar Reportes -->
+  <div class="section-box mt-5">
+    <h3 class="title-section">
+      <i class="fas fa-file-download text-secondary"></i> Generar Reportes
+    </h3>
+    <div class="d-flex flex-wrap gap-3">
+      <a
+        href="{{ url_for('routes.reporte_produccion') }}"
+        class="btn-report btn-operario"
+      >
+        🏭 Reporte de Producción
+      </a>
+    </div>
+  </div>
+</div>
 {% endblock %}
