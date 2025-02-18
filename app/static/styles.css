@@ -1,6 +1,7 @@
 /* ===================== */
 /*        GLOBAL        */
 /* ===================== */
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f9f9f9;
@@ -10,6 +11,7 @@ body {
 /* ===================== */
 /*       NAVBAR         */
 /* ===================== */
+
 .navbar {
     background: linear-gradient(90deg, #f3a847 0%, #d88f22 100%);
     padding: 15px;
@@ -34,6 +36,7 @@ body {
 /* ===================== */
 /*     FLASH MESSAGES   */
 /* ===================== */
+
 .alert {
     font-size: 14px;
 }
@@ -41,6 +44,7 @@ body {
 /* ===================== */
 /*       FOOTER         */
 /* ===================== */
+
 footer {
     background: #5e3c0c;
     color: white;
@@ -51,6 +55,7 @@ footer {
 /* ===================== */
 /*     LOGIN PAGE       */
 /* ===================== */
+
 .login-container {
     height: 90vh;
     display: flex;
@@ -73,13 +78,11 @@ footer {
     transform: scale(1.01);
 }
 
-/* Íconos en los formularios */
 .login-card .form-label i {
     font-size: 20px;
     margin-right: 5px;
 }
 
-/* Ícono de usuario en login */
 .login-card .fa-user-circle {
     font-size: 60px;
 }
@@ -98,6 +101,7 @@ footer {
 /* ===================== */
 /*      DASHBOARD       */
 /* ===================== */
+
 .title-dashboard {
     font-size: 2.2rem;
     font-weight: bold;
@@ -113,6 +117,7 @@ footer {
 /* ===================== */
 /*  DASHBOARD CARDS     */
 /* ===================== */
+
 .dashboard-card {
     display: flex;
     flex-direction: column;
@@ -146,6 +151,7 @@ footer {
 /* ===================== */
 /*       TABLAS         */
 /* ===================== */
+
 .table {
     border-radius: 8px;
     overflow: hidden;
@@ -157,29 +163,16 @@ footer {
 .table thead {
     font-weight: bold;
     text-transform: uppercase;
-}
-
-.table thead tr {
     background: #f3a847;
     color: white;
 }
 
-.table-bordered {
-    border: 1px solid #ddd;
-}
-
+/* Hover y efectos en filas */
 .table-hover tbody tr:hover {
     background: rgba(243, 168, 71, 0.1);
     transition: background 0.3s ease-in-out;
 }
 
-/* Celdas */
-.table td, .table th {
-    padding: 15px;
-    vertical-align: middle;
-}
-
-/* Estilo alternativo en filas */
 .table-striped tbody tr:nth-of-type(odd) {
     background-color: rgba(243, 168, 71, 0.05);
 }
@@ -192,6 +185,7 @@ footer {
 /* ===================== */
 /*       BOTONES        */
 /* ===================== */
+
 .btn-report {
     background: linear-gradient(45deg, #444, #222);
     color: white;
@@ -208,8 +202,9 @@ footer {
 }
 
 /* ===================== */
-/*  SECCIONES Y BOXES   */
+/*   SECCIONES Y BOXES  */
 /* ===================== */
+
 .section-box {
     background: white;
     padding: 20px;
@@ -218,25 +213,10 @@ footer {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Títulos en secciones */
-.section-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    border-left: 5px solid #f3a847;
-    padding-left: 10px;
-    color: #333;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.section-title i {
-    color: #f3a847;
-}
-
 /* ===================== */
-/*  EFECTOS EN FILAS    */
+/*   COLORES DE ESTADOS */
 /* ===================== */
+
 .text-danger {
     font-weight: bold;
     color: #d9534f !important;
@@ -263,8 +243,9 @@ footer {
 }
 
 /* ===================== */
-/*  Dash del Gerente     */
+/*   ESTILOS DEL GERENTE */
 /* ===================== */
+
 .title-gerente {
     background: linear-gradient(45deg, #d88f22, #a56217);
     color: white;
@@ -274,9 +255,6 @@ footer {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* ===================== */
-/*      Tarjetas        */
-/* ===================== */
 .card-gerente {
     border-color: #d88f22;
     transition: all 0.3s ease-in-out;
@@ -289,33 +267,9 @@ footer {
 }
 
 /* ===================== */
-/*        Botones        */
+/*    ESTILOS OPERARIO  */
 /* ===================== */
-.btn-gerente {
-    background: linear-gradient(45deg, #d88f22, #a56217);
-    color: white;
-    padding: 12px 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s ease-in-out, transform 0.2s;
-}
 
-.btn-gerente:hover {
-    background: linear-gradient(45deg, #a56217, #86450d);
-    transform: scale(1.05);
-}
-
-/* ===================== */
-/*  Dash del Operario    */
-/* ===================== */
-.title-dashboard {
-    background: linear-gradient(45deg, #17a2b8, #117a8b);
-}
-
-/* ===================== */
-/*      Tarjetas        */
-/* ===================== */
 .card-operario {
     border: 2px solid #17a2b8;
     background: white;
@@ -328,26 +282,10 @@ footer {
     color: white;
 }
 
-.card-operario:hover i {
-    color: white !important;
-}
+/* ===================== */
+/*   CERRAR SESIÓN (LOGOUT) */
+/* ===================== */
 
-/* ===================== */
-/*       Botones        */
-/* ===================== */
-.btn-operario {
-    background: linear-gradient(45deg, #17a2b8, #117a8b);
-    transition: transform 0.2s ease-in-out;
-}
-
-.btn-operario:hover {
-    transform: scale(1.08);
-    background: linear-gradient(45deg, #117a8b, #0d5f75);
-}
-
-/* ===================== */
-/*  Cerrar Sesión (Logout) */
-/* ===================== */
 .logout-btn {
     background: linear-gradient(45deg, #d9534f, #c9302c);
     padding: 10px 15px;
@@ -358,49 +296,10 @@ footer {
     align-items: center;
     gap: 8px;
     transition: background 0.3s ease-in-out, transform 0.2s, box-shadow 0.2s;
-    border: 2px solid transparent;
-}
-
-.logout-btn i {
-    font-size: 1.2rem;
 }
 
 .logout-btn:hover {
     background: linear-gradient(45deg, #c9302c, #a52a2a);
     transform: scale(1.05);
     box-shadow: 0px 4px 12px rgba(217, 83, 79, 0.5);
-    border-color: white;
-}
-
-/* ===================== */
-/*  Dash del Cliente     */
-/* ===================== */
-.title-dashboard {
-    background: linear-gradient(45deg, #28a745, #218838);
-}
-
-/* ===================== */
-/*      Tarjetas        */
-/* ===================== */
-.dashboard-card {
-    border-color: #28a745;
-}
-
-.dashboard-card:hover {
-    border-color: #218838;
-    box-shadow: 0px 6px 15px rgba(40, 167, 69, 0.3);
-}
-
-/* ===================== */
-/*   Botón de Logout    */
-/* ===================== */
-.logout-card {
-    background: linear-gradient(45deg, #6c757d, #495057);
-    color: white;
-    transition: background 0.3s ease-in-out, transform 0.2s;
-}
-
-.logout-card:hover {
-    background: linear-gradient(45deg, #495057, #343a40);
-    transform: scale(1.05);
 }
