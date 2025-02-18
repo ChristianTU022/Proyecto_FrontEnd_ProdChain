@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Gestión de Materias Primas</h2>
+
+
+<h3>Agregar Nueva Materia Prima</h3>
+<form method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+
+    <label>Descripción:</label>
+    <input type="text" name="descripcion" required>
+
+    <label>Unidad de Medida:</label>
+    <input type="text" name="unidad_medida" required>
+
+    <label>Stock Actual:</label>
+    <input type="number" step="0.01" name="stock_actual" required>
+
+    <label>Stock Mínimo:</label>
+    <input type="number" step="0.01" name="stock_minimo" required>
+
+    <label>Precio:</label>
+    <input type="number" step="0.01" name="precio" required>
+
+    <button type="submit">Agregar</button>
+</form>
+
+
+<h3>Lista de Materias Primas</h3>
+{% if materias %}
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Unidad de Medida</th>
+        <th>Stock</th>
+        <th>Stock Mínimo</th>
+        <th>Precio</th>
+        <th>Acción</th>
+    </tr>
+    {% for materia in materias %}
+    <tr>
+        <td>{{ materia.nombre }}</td>
+        <td>{{ materia.descripcion }}</td>
+        <td>{{ materia.unidad_medida }}</td>
+        <td>{{ materia.stock_actual }}</td>
+        <td>{{ materia.stock_minimo }}</td>
+        <td>${{ materia.precio }}</td>
+        <td>
+           
+            <form method="POST" action="{{ url_for('routes.actualizar_stock_materia_prima', id=materia.id) }}" style="display:inline;">
+                <input type="number" name="nuevo_stock" step="0.01" required placeholder="Nuevo stock">
+                <button type="submit">Actualizar</button>
+            </form>
+            <br>
+            
+            <a href="{{ url_for('routes.eliminar_materia_prima', id=materia.id) }}" 
+               onclick="return confirm('¿Estás seguro de eliminar esta materia prima?')">
+            Eliminar
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay materias primas registradas aún.</p>
+{% endif %}
+
+
+<a href="{{ url_for('routes.dashboard') }}">volver</a>
+
+{% endblock %}

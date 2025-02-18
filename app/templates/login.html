@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}Iniciar Sesión - Juno-Lab{% endblock
+%} {% block content %}
+<div class="d-flex justify-content-center align-items-center login-container">
+  <div class="card login-card p-5">
+    <div class="text-center mb-4">
+      <i class="fas fa-user-circle fa-5x text-warning"></i>
+      <h3 class="fw-bold mt-3">Iniciar Sesión</h3>
+    </div>
+    <form method="POST" action="{{ url_for('routes.login') }}">
+      <div class="mb-4">
+        <label for="email" class="form-label">
+          <i class="fas fa-envelope"></i> Correo Electrónico
+        </label>
+        <input
+          type="email"
+          class="form-control form-control-lg"
+          id="email"
+          name="email"
+          placeholder="Ingresa tu correo"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="password" class="form-label">
+          <i class="fas fa-lock"></i> Contraseña
+        </label>
+        <input
+          type="password"
+          class="form-control form-control-lg"
+          id="password"
+          name="password"
+          placeholder="Ingresa tu contraseña"
+          required
+        />
+      </div>
+      <div class="d-grid">
+        <button type="submit" class="btn btn-warning btn-lg shadow btn-login">
+          Ingresar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

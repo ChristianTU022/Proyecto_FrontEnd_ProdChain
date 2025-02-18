@@ -1,0 +1,86 @@
+/* Estilos Generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fff8e1;
+    color: #5e3c0c;
+}
+
+/* Navbar */
+.navbar {
+    background: linear-gradient(90deg, #f3a847 0%, #d88f22 100%);
+    padding: 15px;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    color: white;
+    transition: color 0.3s ease-in-out, transform 0.2s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #fff8e1;
+    transform: scale(1.05);
+}
+
+/* Mensajes Flash */
+.alert {
+    font-size: 14px;
+}
+
+/* Página de Login */
+.login-container {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    transition: transform 0.15s ease-in-out;
+    padding: 40px;
+}
+
+.login-card:hover {
+    transform: scale(1.01);
+}
+
+/* Íconos del formulario */
+.login-card .form-label i {
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+/* Ícono de Usuario en Login */
+.login-card .fa-user-circle {
+    font-size: 60px;
+}
+
+/* Botón de Ingresar */
+.btn-login {
+    margin: 1rem 0;
+    transition: background-color 0.3s ease-in-out, transform 0.2s;
+}
+
+.btn-login:hover {
+    background-color: #e0ac00;
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background: #5e3c0c;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+}

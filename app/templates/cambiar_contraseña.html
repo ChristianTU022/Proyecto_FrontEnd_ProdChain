@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Cambiar Contraseña</h2>
+<form method="POST">
+    <label>Contraseña Actual:</label>
+    <input type="password" name="old_password" required>
+    
+    <label>Nueva Contraseña:</label>
+    <input type="password" name="new_password" required>
+    
+    <label>Confirmar Contraseña:</label>
+    <input type="password" name="confirm_password" required>
+    
+    <button type="submit">Actualizar</button>
+</form>
+
+
+<a href="{{ url_for('routes.dashboard') }}">volver</a>
+{% endblock %}

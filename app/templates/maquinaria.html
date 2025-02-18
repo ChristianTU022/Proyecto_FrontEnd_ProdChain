@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Gestión de Maquinaria y Mantenimiento</h2>
+
+
+<h3>Listado de Maquinaria</h3>
+{% if maquinaria %}
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Modelo</th>
+        <th>Estado</th>
+    </tr>
+    {% for item in maquinaria %}
+    <tr>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.modelo }}</td>
+        <td>{{ item.estado }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay maquinaria registrada.</p>
+{% endif %}
+
+
+<h3>Historial de Mantenimiento</h3>
+{% if mantenimientos %}
+<table border="1">
+    <tr>
+        <th>Maquinaria</th>
+        <th>Fecha</th>
+        <th>Descripción</th>
+        <th>Costo</th>
+    </tr>
+    {% for mt in mantenimientos %}
+    <tr>
+        <td>{{ mt.maquinaria }}</td>
+        <td>{{ mt.fecha }}</td>
+        <td>{{ mt.descripcion }}</td>
+        <td>${{ mt.costo }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay mantenimientos registrados.</p>
+{% endif %}
+
+<a href="{{ url_for('routes.dashboard') }}">volver</a>
+{% endblock %}

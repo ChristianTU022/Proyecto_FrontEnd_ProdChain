@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hola, {{ usuario.nombre }} </h1>
+
+
+<nav>
+    <a href="{{ url_for('routes.ordenes_produccion') }}">Producción</a>
+    <a href="{{ url_for('routes.cambiar_contraseña') }}">Cambiar Contraseña</a>
+    <a href="{{ url_for('routes.logout') }}">Cerrar Sesión</a>
+</nav>
+
+<h2>Generar Reportes</h2>
+
+<ul>
+
+    <li><a href="{{ url_for('routes.reporte_produccion') }}">Descargar Reporte de Producción</a></li>
+
+
+</ul>
+
+{% endblock %}

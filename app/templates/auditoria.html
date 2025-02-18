@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Historial de Auditoría y Reportes</h2>
+
+
+<h3>Registro de Auditoría</h3>
+{% if auditoria %}
+<table border="1">
+    <tr>
+        <th>Usuario</th>
+        <th>Tabla Afectada</th>
+        <th>Operación</th>
+        <th>Fecha</th>
+    </tr>
+    {% for log in auditoria %}
+    <tr>
+        <td>{{ log.usuario }}</td>
+        <td>{{ log.tabla_afectada }}</td>
+        <td>{{ log.operacion }}</td>
+        <td>{{ log.fecha }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay registros de auditoría.</p>
+{% endif %}
+
+
+<h3>Reportes Generados</h3>
+{% if reportes %}
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>Fecha de Generación</th>
+        <th>Generado Por</th>
+    </tr>
+    {% for reporte in reportes %}
+    <tr>
+        <td>{{ reporte.id }}</td>
+        <td>{{ reporte.tipo }}</td>
+        <td>{{ reporte.fecha_generacion }}</td>
+        <td>{{ reporte.generado_por }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay reportes generados.</p>
+{% endif %}
+
+<a href="{{ url_for('routes.dashboard') }}">volver</a>
+{% endblock %}

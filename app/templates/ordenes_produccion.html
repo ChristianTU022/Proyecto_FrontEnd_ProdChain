@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Gestión de Órdenes de Producción</h2>
+
+
+<h3>Crear Nueva Orden</h3>
+<form method="POST">
+    <label>Producto:</label>
+    <select name="producto_id" required>
+        {% for producto in productos %}
+        <option value="{{ producto.id }}">{{ producto.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Cantidad:</label>
+    <input type="number" step="1" name="cantidad" required>
+
+    <button type="submit">Crear Orden</button>
+</form>
+
+
+<h3>Órdenes de Producción</h3>
+{% if ordenes %}
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Fecha de Inicio</th>
+        <th>Estado</th>
+        <th>Creado Por</th>
+        <th>Acción</th>
+    </tr>
+    {% for orden in ordenes %}
+    <tr>
+        <td>{{ orden.id }}</td>
+        <td>{{ orden.producto }}</td>
+        <td>{{ orden.cantidad }}</td>
+        <td>{{ orden.fecha_inicio }}</td>
+        <td>{{ orden.estado }}</td>
+        <td>{{ orden.usuario }}</td>
+        <td>
+            
+            <form method="POST" action="{{ url_for('routes.actualizar_estado_orden', id=orden.id) }}" style="display:inline;">
+                <select name="nuevo_estado" required>
+                    <option value="Pendiente" {% if orden.estado == "Pendiente" %}selected{% endif %}>Pendiente</option>
+                    <option value="En Proceso" {% if orden.estado == "En Proceso" %}selected{% endif %}>En Proceso</option>
+                    <option value="Finalizado" {% if orden.estado == "Finalizado" %}selected{% endif %}>Finalizado</option>
+                </select>
+                <button type="submit">Actualizar</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay órdenes de producción registradas aún.</p>
+{% endif %}
+
+<a href="{{ url_for('routes.dashboard') }}">volver</a>
+
+{% endblock %}

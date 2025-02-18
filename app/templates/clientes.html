@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Gestión de Clientes</h2>
+
+
+<h3>Agregar Cliente</h3>
+<form method="POST">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" required>
+
+    <label>Teléfono:</label>
+    <input type="text" name="telefono" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Dirección:</label>
+    <input type="text" name="direccion" required>
+
+    <label>Usuario Asociado:</label>
+    <select name="usuario_id" required>
+        <option value="">-- Seleccionar Usuario --</option>
+        {% for usuario in usuarios %}
+        <option value="{{ usuario.id }}">{{ usuario.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <button type="submit">Agregar Cliente</button>
+</form>
+
+
+<h3>Lista de Clientes</h3>
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Dirección</th>
+        <th>Usuario Asociado</th>
+        <th>Acción</th>
+    </tr>
+    {% for cliente in clientes %}
+    <tr>
+        <td>{{ cliente.nombre }}</td>
+        <td>{{ cliente.telefono }}</td>
+        <td>{{ cliente.email }}</td>
+        <td>{{ cliente.direccion }}</td>
+        <td>{% if cliente.usuario %}{{ cliente.usuario }}{% else %}No asignado{% endif %}</td>
+        <td><a href="{{ url_for('routes.eliminar_cliente', id=cliente.id) }}">Eliminar</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="{{ url_for('routes.dashboard') }}">Volver</a>
+{% endblock %}

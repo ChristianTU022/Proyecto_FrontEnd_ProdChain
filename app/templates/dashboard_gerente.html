@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Dashboard de Gerente</h1>
+
+
+<nav>
+    <a href="{{ url_for('routes.clientes') }}">Clientes</a>
+    <a href="{{ url_for('routes.pedidos') }}">Pedidos</a>
+    <a href="{{ url_for('routes.ordenes_produccion') }}">Producción</a>
+    <a href="{{ url_for('routes.cambiar_contraseña') }}">Cambiar Contraseña</a>
+    <a href="{{ url_for('routes.logout') }}">Cerrar Sesión</a>
+</nav>
+
+
+<h2>Inventario</h2>
+<h3>Materias Primas con Stock Bajo</h3>
+<table border="1">
+    <tr>
+        <th>Nombre</th>
+        <th>Stock Actual</th>
+        <th>Stock Mínimo</th>
+    </tr>
+    {% for item in stock_bajo %}
+    <tr>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.stock_actual }}</td>
+        <td>{{ item.stock_minimo }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Órdenes de Producción Recientes</h2>
+<table border="1">
+    <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+    </tr>
+    {% for orden in ordenes_produccion %}
+    <tr>
+        <td>{{ orden.nombre }}</td>
+        <td>{{ orden.cantidad }}</td>
+        <td>{{ orden.fecha_inicio }}</td>
+        <td>{{ orden.estado }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h2>Pedidos Recientes</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Cliente</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+    </tr>
+    {% for pedido in pedidos %}
+    <tr>
+        <td>{{ pedido.id }}</td>
+        <td>{{ pedido.cliente_id }}</td>
+        <td>{{ pedido.fecha_pedido }}</td>
+        <td>{{ pedido.estado }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+<h2>Inventario General</h2>
+{% if inventario %}
+<table border="1">
+    <tr>
+        <th>Tipo</th>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+        <th>Última Actualización</th>
+    </tr>
+    {% for item in inventario %}
+    <tr>
+        <td>{{ item.tipo }}</td>
+        <td>{{ item.nombre }}</td>
+        <td>{{ item.cantidad }}</td>
+        <td>{{ item.fecha_actualizacion }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>No hay registros de inventario.</p>
+{% endif %}
+
+<h2>Generar Reportes</h2>
+<ul>
+
+    <li><a href="{{ url_for('routes.reporte_produccion') }}">Descargar Reporte de Producción</a></li>
+    <li><a href="{{ url_for('routes.reporte_pedidos') }}">Descargar Reporte de Pedidos</a></li>
+
+</ul>
+
+{% endblock %}
