@@ -1,11 +1,15 @@
-/* Estilos Generales */
+/* ===================== */
+/*        GLOBAL        */
+/* ===================== */
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #fff8e1;
+    background-color: #f9f9f9;
     color: #5e3c0c;
 }
 
-/* Navbar */
+/* ===================== */
+/*       NAVBAR         */
+/* ===================== */
 .navbar {
     background: linear-gradient(90deg, #f3a847 0%, #d88f22 100%);
     padding: 15px;
@@ -27,12 +31,26 @@ body {
     transform: scale(1.05);
 }
 
-/* Mensajes Flash */
+/* ===================== */
+/*     FLASH MESSAGES   */
+/* ===================== */
 .alert {
     font-size: 14px;
 }
 
-/* Página de Login */
+/* ===================== */
+/*       FOOTER         */
+/* ===================== */
+footer {
+    background: #5e3c0c;
+    color: white;
+    padding: 15px;
+    font-size: 14px;
+}
+
+/* ===================== */
+/*     LOGIN PAGE       */
+/* ===================== */
 .login-container {
     height: 90vh;
     display: flex;
@@ -45,28 +63,28 @@ body {
     max-width: 450px;
     border: none;
     border-radius: 12px;
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
     background-color: white;
-    transition: transform 0.15s ease-in-out;
     padding: 40px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s ease-in-out;
 }
 
 .login-card:hover {
     transform: scale(1.01);
 }
 
-/* Íconos del formulario */
+/* Íconos en los formularios */
 .login-card .form-label i {
     font-size: 20px;
     margin-right: 5px;
 }
 
-/* Ícono de Usuario en Login */
+/* Ícono de usuario en login */
 .login-card .fa-user-circle {
     font-size: 60px;
 }
 
-/* Botón de Ingresar */
+/* Botón de ingreso */
 .btn-login {
     margin: 1rem 0;
     transition: background-color 0.3s ease-in-out, transform 0.2s;
@@ -77,10 +95,161 @@ body {
     transform: scale(1.05);
 }
 
-/* Footer */
-footer {
-    background: #5e3c0c;
+/* ===================== */
+/*      DASHBOARD       */
+/* ===================== */
+.title-dashboard {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px 0;
+    background: linear-gradient(45deg, #f3a847, #d88f22);
     color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================== */
+/*  DASHBOARD CARDS     */
+/* ===================== */
+.dashboard-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+}
+
+.dashboard-card i {
+    font-size: 2.5rem;
+    color: #f3a847;
+    margin-bottom: 10px;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    border-color: #f3a847;
+}
+
+/* ===================== */
+/*       TABLAS         */
+/* ===================== */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* Encabezados de tablas */
+.table thead {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.table thead tr {
+    background: #f3a847;
+    color: white;
+}
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+
+.table-hover tbody tr:hover {
+    background: rgba(243, 168, 71, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+/* Celdas */
+.table td, .table th {
     padding: 15px;
-    font-size: 14px;
+    vertical-align: middle;
+}
+
+/* Estilo alternativo en filas */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(243, 168, 71, 0.05);
+}
+
+/* Bordes suaves */
+.table-bordered td, .table-bordered th {
+    border: 1px solid #ddd;
+}
+
+/* ===================== */
+/*       BOTONES        */
+/* ===================== */
+.btn-report {
+    background: linear-gradient(45deg, #444, #222);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+.btn-report:hover {
+    background: linear-gradient(45deg, #222, #000);
+    transform: scale(1.05);
+}
+
+/* ===================== */
+/*  SECCIONES Y BOXES   */
+/* ===================== */
+.section-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos en secciones */
+.section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-left: 5px solid #f3a847;
+    padding-left: 10px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-title i {
+    color: #f3a847;
+}
+
+/* ===================== */
+/*  EFECTOS EN FILAS    */
+/* ===================== */
+.text-danger {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #d9534f !important;
+}
+
+.text-success {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #5cb85c !important;
+}
+
+.text-muted {
+    font-size: 1rem;
+    font-weight: 500;
 }
